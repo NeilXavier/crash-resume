@@ -1,0 +1,525 @@
+/* 首页 */
+
+.home {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 24px 24px 48px;
+  background: #f7f8fa;
+}
+
+/* ---------- Hero ---------- */
+
+.home__hero {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  padding: 32px 8px 40px;
+}
+
+.home__badge {
+  height: 40px;
+  padding: 0 16px;
+  color: #2ba471;
+  font-size: 20px;
+  line-height: 40px;
+  background: #e8f5e9;
+  border-radius: 20px;
+}
+
+.home__title {
+  margin-top: 20px;
+  color: #222;
+  font-size: 56px;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.home__desc {
+  margin-top: 16px;
+  color: #888;
+  font-size: 24px;
+  line-height: 1.7;
+}
+
+/* ---------- 主入口 ---------- */
+
+.home__entry {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 36px 32px;
+  background: linear-gradient(135deg, #fff 0%, #f2fbf6 100%);
+  border: 1px solid #e2f2e9;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 6%);
+  cursor: pointer;
+  transition: opacity 200ms ease-in-out, background 200ms ease-in-out;
+}
+
+/*
+ * 悬停反馈只改颜色，不能位移。
+ * 元素在 hover 时下移 2px，鼠标停在卡片下边缘会触发「移出 → 复原 → 再进入」
+ * 的高频抖动，实际表现就是点击不灵敏 / 点了没反应。
+ */
+.home__entry--hover {
+  opacity: 0.9;
+  background: #eef9f2;
+}
+
+/* 点击后立即给出反馈，避免等待页面切换时误以为没点中 */
+.home__entry.is-entering {
+  opacity: 0.7;
+}
+
+.home__entry-main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.home__entry-title {
+  color: #222;
+  font-size: 36px;
+  font-weight: 700;
+}
+
+.home__entry-desc {
+  margin-top: 8px;
+  overflow: hidden;
+  color: #888;
+  font-size: 22px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home__entry-badge {
+  flex: none;
+  height: 56px;
+  padding: 0 28px;
+  color: #fff;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 56px;
+  background: #2ba471;
+  border-radius: 28px;
+}
+
+/* ---------- 两宫格 ---------- */
+
+.home__grid {
+  display: flex;
+  margin-top: 24px;
+}
+
+.home__cell {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  padding: 28px 24px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 6%);
+  cursor: pointer;
+  transition: opacity 200ms ease-in-out, background 200ms ease-in-out;
+}
+
+.home__cell + .home__cell {
+  margin-left: 24px;
+}
+
+/* 同首页主入口：悬停只做颜色变化，位移会造成命中区域抖动 */
+.home__cell--hover {
+  opacity: 0.9;
+  background: #fafcfb;
+}
+
+.home__cell-icon {
+  width: 64px;
+  height: 64px;
+  font-size: 26px;
+  font-weight: 700;
+  line-height: 64px;
+  text-align: center;
+  border-radius: 16px;
+}
+
+.home__cell-icon--primary {
+  color: #2ba471;
+  background: #e8f5e9;
+}
+
+.home__cell-icon--warm {
+  color: #e07a3f;
+  background: #f6e3d5;
+}
+
+.home__cell-title {
+  margin-top: 20px;
+  color: #222;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.home__cell-desc {
+  margin-top: 6px;
+  overflow: hidden;
+  color: #888;
+  font-size: 20px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+/* ---------- 快捷动作 ---------- */
+
+.home__quick {
+  display: flex;
+  margin-top: 24px;
+}
+
+.home__quick-btn {
+  flex: 1;
+  height: 80px;
+  border-radius: 40px;
+}
+
+.home__quick-btn + .home__quick-btn {
+  margin-left: 20px;
+}
+
+/* ---------- 卡片与清单 ---------- */
+
+.home__card {
+  display: flex;
+  flex-direction: column;
+  margin-top: 24px;
+  padding: 32px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 6%);
+}
+
+.home__section {
+  color: #222;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.home__tip {
+  display: flex;
+  align-items: flex-start;
+  margin-top: 20px;
+}
+
+.home__tip-index {
+  flex: none;
+  width: 32px;
+  height: 32px;
+  margin-top: 4px;
+  color: #2ba471;
+  font-size: 20px;
+  font-weight: 700;
+  line-height: 32px;
+  text-align: center;
+  background: #e8f5e9;
+  border-radius: 50%;
+}
+
+.home__tip-text {
+  flex: 1;
+  margin-left: 16px;
+  color: #222;
+  font-size: 24px;
+  line-height: 1.6;
+}
+
+.home__foot {
+  display: block;
+  margin-top: 40px;
+  color: #888;
+  font-size: 20px;
+  text-align: center;
+}
+
+/* ---------- 弹层 ---------- */
+
+.home__mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+  background: rgb(0 0 0 / 40%);
+  animation: home-mask-in 200ms ease-in-out both;
+}
+
+@keyframes home-mask-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.home__sheet {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 80vh;
+  background: #fff;
+  border-radius: 24px 24px 0 0;
+  animation: home-sheet-up 200ms ease-in-out both;
+}
+
+@keyframes home-sheet-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.home__sheet-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: none;
+  padding: 32px 32px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.home__sheet-close {
+  color: #888;
+  font-size: 24px;
+}
+
+.home__sheet-body {
+  /* Taro 的 scroll-view 自带 width: 100%，默认 content-box 会再加上左右 padding，
+     在桌面端宽度超过弹层，滚动条会露到面板外面 */
+  box-sizing: border-box;
+  width: 100%;
+  flex: 1;
+  max-height: 60vh;
+  padding: 24px 32px;
+}
+
+.home__sheet-foot {
+  flex: none;
+  padding: 16px 32px 40px;
+  border-top: 1px solid #eee;
+}
+
+/* ---------- 模板卡 ---------- */
+
+.home__tpl-list {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: space-between;
+}
+
+.home__tpl {
+  position: relative;
+  box-sizing: border-box;
+  width: 47%;
+  margin-bottom: 24px;
+  padding: 12px;
+  border: 2px solid #eee;
+  border-radius: 16px;
+  transition: border-color 200ms ease-in-out, background 200ms ease-in-out;
+}
+
+.home__tpl.is-active {
+  background: #f6fdf9;
+  border-color: #2ba471;
+}
+
+.home__tpl-thumb {
+  display: flex;
+  height: 180px;
+  overflow: hidden;
+  border-radius: 10px;
+}
+
+.home__tpl-block {
+  width: 34%;
+  height: 100%;
+}
+
+.home__tpl-rows {
+  flex: 1;
+  padding: 16px 12px;
+}
+
+.home__tpl-row {
+  height: 10px;
+  margin-bottom: 10px;
+  opacity: 0.85;
+  border-radius: 5px;
+}
+
+.home__tpl-row--w70 {
+  width: 70%;
+}
+
+.home__tpl-row--w85 {
+  width: 85%;
+}
+
+.home__tpl-row--w55 {
+  width: 55%;
+}
+
+.home__tpl-name {
+  display: block;
+  margin-top: 12px;
+  color: #222;
+  font-size: 24px;
+  font-weight: 700;
+}
+
+.home__tpl-desc {
+  display: block;
+  margin-top: 4px;
+  color: #888;
+  font-size: 18px;
+  line-height: 1.4;
+}
+
+/* ---------- 草稿列表 ---------- */
+
+.home__empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 80px 0;
+}
+
+.home__empty-icon {
+  width: 96px;
+  height: 96px;
+  color: #2ba471;
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 96px;
+  text-align: center;
+  background: #e8f5e9;
+  border-radius: 50%;
+}
+
+.home__empty-title {
+  margin-top: 24px;
+  color: #222;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.home__empty-desc {
+  margin-top: 8px;
+  color: #888;
+  font-size: 20px;
+}
+
+.home__draft {
+  display: flex;
+  align-items: center;
+  padding: 24px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.home__draft-avatar {
+  flex: none;
+  width: 88px;
+  height: 88px;
+  overflow: hidden;
+  background: #e8f5e9;
+  border-radius: 50%;
+}
+
+.home__draft-img {
+  width: 100%;
+  height: 100%;
+}
+
+.home__draft-holder {
+  display: block;
+  width: 100%;
+  height: 100%;
+  color: #2ba471;
+  font-size: 32px;
+  font-weight: 700;
+  line-height: 88px;
+  text-align: center;
+}
+
+.home__draft-main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+  margin-left: 20px;
+}
+
+.home__draft-name {
+  color: #222;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.home__draft-desc {
+  margin-top: 4px;
+  overflow: hidden;
+  color: #888;
+  font-size: 22px;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.home__draft-time {
+  margin-top: 4px;
+  color: #bbb;
+  font-size: 20px;
+}
+
+.home__draft-del {
+  flex: none;
+  padding: 12px 20px;
+  color: #e53935;
+  font-size: 22px;
+}
+
+/* 桌面端：可点击元素显示手型光标 */
+.home__sheet-close,
+.home__tpl,
+.home__draft,
+.home__draft-del {
+  cursor: pointer;
+}
+
+/* ---------- 桌面端 ---------- */
+
+@media (min-width: 751PX) {
+  /* 宽屏上把底部弹层变成居中对话框，避免横跨整个屏幕 */
+  .home__mask {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .home__sheet {
+    box-sizing: border-box;
+    width: calc(100% - 48PX);
+    max-width: 750PX;
+    border-radius: 24PX;
+    box-shadow: 0 24PX 64PX rgb(0 0 0 / 24%);
+  }
+}

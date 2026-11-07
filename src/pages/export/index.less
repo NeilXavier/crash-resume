@@ -1,0 +1,307 @@
+/* 导出页 */
+
+.export {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 24px 24px 48px;
+  background: #f7f8fa;
+}
+
+/* ---------- 概览卡 ---------- */
+
+.export__card {
+  margin-bottom: 24px;
+  padding: 28px 32px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 6%);
+  animation: export-card-in 200ms ease-in-out both;
+}
+
+@keyframes export-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.export__row {
+  display: flex;
+  align-items: flex-start;
+  padding: 16px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.export__row--last {
+  border-bottom: none;
+}
+
+.export__row-label {
+  flex: none;
+  width: 160px;
+  color: #888;
+  font-size: 24px;
+}
+
+.export__row-value {
+  flex: 1;
+  color: #222;
+  font-size: 24px;
+  font-weight: 600;
+  line-height: 1.5;
+  text-align: right;
+  word-break: break-all;
+}
+
+.export__row-value--small {
+  font-size: 20px;
+  font-weight: 400;
+}
+
+/* ---------- 说明卡 ---------- */
+
+.export__card--info {
+  background: linear-gradient(135deg, #fff 0%, #f2fbf6 100%);
+  border: 1px solid #e2f2e9;
+}
+
+.export__info-title {
+  display: block;
+  color: #222;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.export__spec {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 16px;
+}
+
+.export__spec-item {
+  margin: 0 12px 12px 0;
+  padding: 8px 20px;
+  color: #2ba471;
+  font-size: 20px;
+  background: #e8f5e9;
+  border-radius: 24px;
+}
+
+.export__info-desc {
+  display: block;
+  margin-top: 4px;
+  color: #888;
+  font-size: 22px;
+  line-height: 1.6;
+}
+
+/* ---------- 提醒 ---------- */
+
+.export__notice {
+  margin-bottom: 24px;
+  padding: 20px 28px;
+  background: #fdf6ec;
+  border: 1px solid #f6e3d5;
+  border-radius: 12px;
+}
+
+.export__notice-text {
+  color: #e07a3f;
+  font-size: 22px;
+  line-height: 1.6;
+}
+
+/* ---------- 操作 ---------- */
+
+.export__actions {
+  margin-top: 8px;
+}
+
+.export__gap {
+  height: 20px;
+}
+
+/* ---------- 结果卡 ---------- */
+
+.export__card--result {
+  margin-top: 32px;
+}
+
+.export__result-name {
+  display: block;
+  margin-top: 12px;
+  color: #222;
+  font-size: 24px;
+  font-weight: 700;
+  word-break: break-all;
+}
+
+.export__result-path {
+  display: block;
+  margin-top: 8px;
+  color: #888;
+  font-size: 20px;
+  line-height: 1.6;
+}
+
+.export__foot {
+  display: block;
+  margin-top: 32px;
+  color: #888;
+  font-size: 20px;
+  text-align: center;
+}
+
+/* ---------- 隐藏画布 ---------- */
+
+.export__canvas {
+  position: fixed;
+  top: -200px;
+  left: -200px;
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ---------- 分页预览弹窗 ---------- */
+
+.export__mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 48px 32px;
+  background: rgb(0 0 0 / 50%);
+  animation: export-mask-in 200ms ease-in-out both;
+}
+
+@keyframes export-mask-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.export__modal {
+  display: flex;
+  flex-direction: column;
+  width: 100%;
+  max-height: 100%;
+  background: #fff;
+  border-radius: 20px;
+  animation: export-modal-in 200ms ease-in-out both;
+}
+
+@keyframes export-modal-in {
+  from {
+    opacity: 0;
+    transform: scale(0.96);
+  }
+
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+.export__modal-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: none;
+  padding: 28px 32px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.export__modal-title {
+  color: #222;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.export__modal-close {
+  color: #888;
+  font-size: 24px;
+}
+
+.export__modal-body {
+  flex: 1;
+  overflow-y: auto;
+  padding: 24px 32px;
+}
+
+.export__page {
+  margin-bottom: 24px;
+}
+
+.export__page-img {
+  display: block;
+  width: 100%;
+  border: 1px solid #eee;
+  border-radius: 8px;
+}
+
+.export__page-tag {
+  display: block;
+  margin-top: 10px;
+  color: #888;
+  font-size: 20px;
+  text-align: center;
+}
+
+.export__modal-empty {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  padding: 60px 0;
+}
+
+.export__modal-empty-title {
+  color: #222;
+  font-size: 26px;
+  font-weight: 700;
+}
+
+.export__modal-empty-desc {
+  margin-top: 12px;
+  color: #888;
+  font-size: 22px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.export__modal-foot {
+  flex: none;
+  padding: 16px 32px 32px;
+  border-top: 1px solid #eee;
+}
+
+.export__modal-close {
+  cursor: pointer;
+}
+
+/* ---------- 桌面端 ---------- */
+
+@media (min-width: 751PX) {
+  /* 分页预览弹窗在宽屏上不要铺满整个窗口 */
+  .export__mask {
+    box-sizing: border-box;
+  }
+
+  .export__modal {
+    max-width: 640PX;
+    box-shadow: 0 24PX 64PX rgb(0 0 0 / 28%);
+  }
+}

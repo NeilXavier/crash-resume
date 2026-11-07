@@ -1,0 +1,368 @@
+/* 预览页 */
+
+.preview {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 24px 24px 220px;
+  background: #f7f8fa;
+}
+
+/* ---------- 顶部信息条 ---------- */
+
+.preview__bar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 24px;
+  padding: 24px 28px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 6%);
+}
+
+.preview__bar-left {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-width: 0;
+}
+
+.preview__bar-title {
+  overflow: hidden;
+  color: #222;
+  font-size: 28px;
+  font-weight: 700;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.preview__bar-sub {
+  margin-top: 6px;
+  color: #888;
+  font-size: 20px;
+}
+
+.preview__page-tag {
+  flex: none;
+  height: 48px;
+  padding: 0 20px;
+  color: #2ba471;
+  font-size: 20px;
+  font-weight: 600;
+  line-height: 48px;
+  background: #e8f5e9;
+  border-radius: 24px;
+}
+
+.preview__page-tag.is-multi {
+  color: #e07a3f;
+  background: #f6e3d5;
+}
+
+/* ---------- 画布区 ---------- */
+
+.preview__stage {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 24px;
+}
+
+/* ---------- 模板切换 ---------- */
+
+.preview__templates {
+  padding: 28px 24px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 6%);
+}
+
+.preview__templates-head {
+  margin-bottom: 20px;
+}
+
+.preview__templates-title {
+  display: block;
+  color: #222;
+  font-size: 28px;
+  font-weight: 700;
+}
+
+.preview__templates-desc {
+  display: block;
+  margin-top: 6px;
+  color: #888;
+  font-size: 20px;
+}
+
+.preview__tpl-row {
+  display: flex;
+  overflow-x: auto;
+  padding-bottom: 8px;
+  white-space: nowrap;
+}
+
+.preview__tpl-row::-webkit-scrollbar {
+  width: 0;
+  height: 0;
+}
+
+.preview__tpl {
+  flex: none;
+  box-sizing: border-box;
+  width: 168px;
+  margin-right: 16px;
+  padding: 10px;
+  border: 2px solid #eee;
+  border-radius: 14px;
+  transition: border-color 200ms ease-in-out, background 200ms ease-in-out, transform 200ms ease-in-out;
+}
+
+.preview__tpl.is-active {
+  background: #f6fdf9;
+  border-color: #2ba471;
+  transform: translateY(-2px);
+}
+
+.preview__tpl-thumb {
+  display: flex;
+  height: 108px;
+  overflow: hidden;
+  border-radius: 8px;
+}
+
+.preview__tpl-block {
+  width: 32%;
+  height: 100%;
+}
+
+.preview__tpl-lines {
+  flex: 1;
+  padding: 14px 10px;
+}
+
+.preview__tpl-line {
+  height: 8px;
+  margin-bottom: 8px;
+  border-radius: 4px;
+}
+
+.preview__tpl-line--w70 {
+  width: 70%;
+}
+
+.preview__tpl-line--w80 {
+  width: 80%;
+}
+
+.preview__tpl-name {
+  display: block;
+  margin-top: 10px;
+  overflow: hidden;
+  color: #222;
+  font-size: 20px;
+  font-weight: 600;
+  text-align: center;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.preview__step {
+  display: flex;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.preview__step-btn {
+  flex: 1;
+  height: 76px;
+  border-radius: 38px;
+}
+
+.preview__step-index {
+  flex: none;
+  width: 140px;
+  color: #888;
+  font-size: 22px;
+  text-align: center;
+}
+
+/* ---------- 底部操作 ---------- */
+
+.preview__footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+  padding: 16px 24px calc(24px + env(safe-area-inset-bottom));
+  background: rgb(255 255 255 / 96%);
+  border-top: 1px solid #eee;
+}
+
+.preview__footer-inner {
+  display: flex;
+}
+
+.preview__footer-plain {
+  flex: none;
+  width: 220px;
+}
+
+.preview__footer-main {
+  flex: 1;
+  margin-left: 20px;
+}
+
+/* ---------- 抽屉 ---------- */
+
+.preview__mask {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 100;
+  display: flex;
+  align-items: flex-end;
+  background: rgb(0 0 0 / 40%);
+  animation: preview-mask-in 200ms ease-in-out both;
+}
+
+@keyframes preview-mask-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.preview__sheet {
+  width: 100%;
+  max-height: 76vh;
+  overflow-y: auto;
+  background: #fff;
+  border-radius: 24px 24px 0 0;
+  animation: preview-sheet-up 200ms ease-in-out both;
+}
+
+@keyframes preview-sheet-up {
+  from {
+    opacity: 0;
+    transform: translateY(40px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.preview__sheet-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 32px 32px 16px;
+  border-bottom: 1px solid #eee;
+}
+
+.preview__sheet-title {
+  color: #222;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.preview__sheet-close {
+  color: #888;
+  font-size: 24px;
+}
+
+.preview__sheet-body {
+  padding: 24px 32px;
+}
+
+.preview__row {
+  display: flex;
+  align-items: flex-start;
+  padding: 16px 0;
+  border-bottom: 1px solid #eee;
+}
+
+.preview__row-label {
+  flex: none;
+  width: 150px;
+  color: #888;
+  font-size: 24px;
+}
+
+.preview__row-value {
+  flex: 1;
+  color: #222;
+  font-size: 24px;
+  line-height: 1.5;
+  text-align: right;
+  word-break: break-all;
+}
+
+.preview__sheet-tip {
+  margin-top: 24px;
+  padding: 20px;
+  color: #2ba471;
+  font-size: 20px;
+  line-height: 1.6;
+  background: #e8f5e9;
+  border-radius: 12px;
+}
+
+.preview__sheet-foot {
+  padding: 16px 32px 40px;
+}
+
+/* ---------- 切换提示 ---------- */
+
+.preview__switching {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  z-index: 150;
+  padding: 20px 36px;
+  color: #fff;
+  font-size: 24px;
+  background: rgb(0 0 0 / 70%);
+  border-radius: 12px;
+  transform: translate(-50%, -50%);
+}
+
+/* 桌面端：可选中的模板卡显示手型光标 */
+.preview__tpl,
+.preview__sheet-close {
+  cursor: pointer;
+}
+
+/* ---------- 桌面端 ---------- */
+
+@media (min-width: 751PX) {
+  /* 底部操作栏与 750px 内容区对齐 */
+  .preview__footer {
+    box-sizing: border-box;
+    right: auto;
+    left: 50%;
+    width: 750PX;
+    transform: translateX(-50%);
+  }
+
+  /* 抽屉在宽屏上居中显示 */
+  .preview__mask {
+    align-items: center;
+    justify-content: center;
+  }
+
+  .preview__sheet {
+    box-sizing: border-box;
+    width: calc(100% - 48PX);
+    max-width: 750PX;
+    border-radius: 24PX;
+    box-shadow: 0 24PX 64PX rgb(0 0 0 / 24%);
+  }
+}

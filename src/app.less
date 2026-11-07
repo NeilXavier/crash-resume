@@ -1,0 +1,57 @@
+/* Taro 小程序使用 page 作为页面根节点。 */
+page {
+  min-height: 100%;
+  color: #222;
+  background: #f7f8fa;
+}
+
+/* H5 原生 TabBar 的层级为 500，页面弹层必须保留其点击区域。 */
+#app {
+  --backdrop-z-index: 400;
+  --popup-z-index: 410;
+}
+
+/*
+ * 桌面端适配。
+ *
+ * 设计稿宽度是 750（手机），在宽屏上如果让它铺满窗口，卡片会被拉得很宽、
+ * 字号却因为根字号有上限而显得很小。这里把导航栏与页面容器一起限制成
+ * 750px 并水平居中，左右留出背景色，视觉上等同于一台放大的手机。
+ *
+ * 注意单位必须写成大写 PX：Taro 的 postcss-pxtransform 只转换小写 px，
+ * 大写会原样输出，否则会被换算成 rem 而重新跟随根字号变化。
+ */
+@media (min-width: 751PX) {
+  body {
+    background: #e9edeb;
+  }
+
+  #taro-navigation-bar {
+    box-sizing: border-box;
+    width: 750PX !important;
+    margin: 0 auto;
+    border-bottom: 1px solid #eceff1;
+    box-shadow: 0 2PX 12PX rgb(0 0 0 / 6%);
+  }
+
+  #app {
+    width: 750PX;
+    min-height: calc(100vh - 40PX);
+    margin: 0 auto;
+    /* 用 clip 而不是 hidden：hidden 会让 #app 变成独立滚动容器，
+       把滚动条关在内容列里，页面回退时的滚动位置也会错乱 */
+    overflow-x: clip;
+    background: #f7f8fa;
+    box-shadow: 0 0 32PX rgb(0 0 0 / 10%);
+  }
+
+  /* Taro 的页面容器自己负责滚动，宽屏下滚动条会挤在 750px 内容列内部，
+     既压缩内容宽度又破坏“手机屏”外观；桌面端改用整页滚动并隐藏它 */
+  .taro_page {
+    scrollbar-width: none;
+  }
+
+  .taro_page::-webkit-scrollbar {
+    display: none;
+  }
+}

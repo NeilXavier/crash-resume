@@ -1,0 +1,65 @@
+/* 通用按钮 */
+
+.app-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  height: 88px;
+  padding: 0 32px;
+  border-radius: 44px;
+  cursor: pointer;
+  transition: opacity 200ms ease-in-out;
+}
+
+.app-btn--block {
+  width: 100%;
+}
+
+/* 点击态只降低透明度：位移会让按钮在按下瞬间挪动，边缘点击容易丢失 */
+.app-btn--hover {
+  opacity: 0.85;
+}
+
+.app-btn.is-disabled {
+  opacity: 0.45;
+  cursor: not-allowed;
+}
+
+.app-btn__label {
+  font-size: 28px;
+  font-weight: 600;
+  line-height: 1;
+}
+
+.app-btn--primary {
+  background: #2ba471;
+}
+
+.app-btn--primary .app-btn__label {
+  color: #fff;
+}
+
+.app-btn--ghost {
+  background: #e8f5e9;
+}
+
+.app-btn--ghost .app-btn__label {
+  color: #2ba471;
+}
+
+.app-btn--plain {
+  background: #fff;
+  border: 1px solid #eee;
+}
+
+.app-btn--plain .app-btn__label {
+  color: #222;
+}
+
+.app-btn--danger {
+  background: #fdeaea;
+}
+
+.app-btn--danger .app-btn__label {
+  color: #e53935;
+}

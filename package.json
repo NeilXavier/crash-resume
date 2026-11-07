@@ -1,0 +1,33 @@
+{
+  "name": "jisu-jianli-test",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "build:h5": "taro build --type h5",
+    "dev:h5": "taro build --type h5 --watch",
+    "serve:h5": "node scripts/serve.js"
+  },
+  "dependencies": {
+    "@taroify/core": "1.0.6",
+    "@tarojs/components": "4.3.1",
+    "@tarojs/react": "4.3.1",
+    "@tarojs/runtime": "4.3.1",
+    "@tarojs/taro": "4.3.1",
+    "react": "18.3.1",
+    "react-dom": "18.3.1"
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-decorators": "^7.29.7",
+    "@babel/plugin-transform-class-properties": "^7.29.7",
+    "@tarojs/cli": "4.3.1",
+    "@tarojs/plugin-framework-react": "4.3.1",
+    "@tarojs/plugin-platform-h5": "4.3.1",
+    "@tarojs/vite-runner": "4.3.1",
+    "@types/react": "^18.3.12",
+    "@vitejs/plugin-react": "^4.7.0",
+    "less": "^4.9.1",
+    "postcss": "^8.4.47",
+    "typescript": "^5.6.3",
+    "vite": "^4.5.5"
+  }
+}

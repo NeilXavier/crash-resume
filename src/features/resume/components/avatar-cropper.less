@@ -1,0 +1,146 @@
+/* 头像裁剪浮层 */
+
+.cropper {
+  position: fixed;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 999;
+  display: flex;
+  flex-direction: column;
+  background: #1c1f22;
+}
+
+.cropper__head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: none;
+  height: 96px;
+  padding: 0 32px;
+}
+
+.cropper__title {
+  color: #fff;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.cropper__cancel {
+  padding: 12px 8px;
+  color: #b8bfc6;
+  font-size: 26px;
+}
+
+/* 重选：加载失败或想换一张时的兜底入口 */
+.cropper__repick {
+  padding: 12px 8px;
+  color: #b8bfc6;
+  font-size: 26px;
+}
+
+.cropper__stage {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: 1;
+  overflow: hidden;
+}
+
+.cropper__canvas {
+  width: 600px;
+  height: 600px;
+}
+
+.cropper__hint {
+  position: absolute;
+  right: 0;
+  bottom: 16px;
+  left: 0;
+  color: rgb(255 255 255 / 55%);
+  font-size: 22px;
+  text-align: center;
+}
+
+.cropper__error {
+  position: absolute;
+  right: 48px;
+  bottom: 16px;
+  left: 48px;
+  color: #ff8a80;
+  font-size: 24px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.cropper__zoom {
+  display: flex;
+  align-items: center;
+  flex: none;
+  padding: 20px 40px 24px;
+}
+
+/* 滑条或手势不可用时的备用缩放操作 */
+
+.cropper__zoom-btn {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 64px;
+  height: 64px;
+  color: #fff;
+  font-size: 34px;
+  line-height: 1;
+  background: rgb(255 255 255 / 12%);
+  border-radius: 50%;
+}
+
+.cropper__slider {
+  flex: 1;
+  margin: 0 20px;
+}
+
+/* 底部操作条：贴底并适配全面屏安全区 */
+.cropper__footer {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  flex: none;
+  padding: 20px 40px calc(20px + env(safe-area-inset-bottom));
+  background: #16191b;
+}
+
+.cropper__skip {
+  flex: none;
+  padding: 12px 0;
+  color: #b8bfc6;
+  font-size: 24px;
+  text-decoration: underline;
+}
+
+/* 主操作：主色大圆角，高度与字号按设计稿规范；相对定位与层级确保可点击 */
+
+.cropper__save {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  z-index: 10;
+  flex: none;
+  min-width: 260px;
+  height: 88px;
+  padding: 0 48px;
+  color: #fff;
+  font-size: 32px;
+  font-weight: 700;
+  background: #2ba471;
+  border-radius: 44px;
+  pointer-events: auto;
+}
+
+.cropper__save--busy {
+  opacity: 0.7;
+}

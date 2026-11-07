@@ -1,0 +1,111 @@
+/* A4 简历画布 */
+
+.resume-canvas {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 100%;
+}
+
+.resume-canvas__frame {
+  position: relative;
+  overflow: hidden;
+  background: #fff;
+  border-radius: 8px;
+  box-shadow: 0 8px 32px rgb(0 0 0 / 12%);
+  animation: resume-canvas-in 200ms ease-in-out both;
+}
+
+@keyframes resume-canvas-in {
+  from {
+    opacity: 0;
+    transform: translateY(16px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.resume-canvas__node {
+  display: block;
+}
+
+.resume-canvas__mask {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  background: rgb(255 255 255 / 88%);
+}
+
+.resume-canvas__spinner {
+  width: 48px;
+  height: 48px;
+  border: 5px solid #e8f5e9;
+  border-top-color: #2ba471;
+  border-radius: 50%;
+  animation: resume-canvas-spin 800ms linear infinite;
+}
+
+@keyframes resume-canvas-spin {
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.resume-canvas__mask-text {
+  margin-top: 16px;
+  color: #2ba471;
+  font-size: 24px;
+}
+
+.resume-canvas__empty {
+  position: absolute;
+  top: 0;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  padding: 0 40px;
+  background: #fff;
+}
+
+.resume-canvas__empty-title {
+  color: #222;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.resume-canvas__empty-desc {
+  margin-top: 12px;
+  color: #888;
+  font-size: 22px;
+  line-height: 1.6;
+  text-align: center;
+}
+
+.resume-canvas__meta {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  margin-top: 16px;
+}
+
+.resume-canvas__meta-item {
+  margin: 4px 5px;
+  padding: 6px 16px;
+  color: #888;
+  font-size: 18px;
+  background: #fff;
+  border-radius: 20px;
+}

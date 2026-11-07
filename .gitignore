@@ -1,0 +1,23 @@
+# 依赖与构建缓存
+node_modules/
+.swc/
+.temp/
+.rn_temp/
+
+# 日志与系统文件
+*.log
+npm-debug.log*
+yarn-error.log*
+.DS_Store
+Thumbs.db
+
+# 本地环境变量（不要提交任何密钥）
+.env
+.env.*
+!.env.example
+
+# 编辑器本地配置
+.idea/
+.vscode/
+
+# 说明：dist/ 已被 README 承诺「预构建产物可直接预览」，因此保留提交

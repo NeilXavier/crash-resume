@@ -1,0 +1,488 @@
+/* 填写页 */
+
+.form {
+  box-sizing: border-box;
+  min-height: 100vh;
+  padding: 24px 24px 200px;
+  background: #f7f8fa;
+}
+
+/* ---------- 卡片 ---------- */
+
+.form__card {
+  margin-bottom: 24px;
+  padding: 32px;
+  background: #fff;
+  border-radius: 16px;
+  box-shadow: 0 4px 16px rgb(0 0 0 / 6%);
+  animation: form-card-in 200ms ease-in-out both;
+}
+
+@keyframes form-card-in {
+  from {
+    opacity: 0;
+    transform: translateY(12px);
+  }
+
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* ---------- 头像 ---------- */
+
+.form__avatar-card {
+  display: flex;
+  align-items: center;
+}
+
+.form__avatar-box {
+  position: relative;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex: none;
+  width: 160px;
+  height: 160px;
+  overflow: hidden;
+  background: #f2f4f7;
+  border: 2px dashed #d8dee5;
+  border-radius: 50%;
+  pointer-events: auto;
+}
+
+.form__avatar-img {
+  width: 100%;
+  height: 100%;
+}
+
+.form__avatar-holder {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.form__avatar-head {
+  position: absolute;
+  top: 34px;
+  left: 50%;
+  width: 52px;
+  height: 52px;
+  background: #b7c2cb;
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+.form__avatar-body {
+  position: absolute;
+  bottom: -18px;
+  left: 50%;
+  width: 104px;
+  height: 104px;
+  background: #b7c2cb;
+  border-radius: 50%;
+  transform: translateX(-50%);
+}
+
+.form__avatar-main {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+  margin-left: 28px;
+}
+
+.form__avatar-title {
+  color: #222;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.form__avatar-desc {
+  margin-top: 8px;
+  color: #888;
+  font-size: 20px;
+  line-height: 1.5;
+}
+
+.form__avatar-actions {
+  display: flex;
+  margin-top: 16px;
+}
+
+.form__mini-btn {
+  height: 64px;
+  padding: 0 24px;
+  border-radius: 32px;
+}
+
+.form__mini-btn + .form__mini-btn {
+  margin-left: 16px;
+}
+
+/* ---------- 分组头 ---------- */
+
+.form__group-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.form__group-title {
+  display: flex;
+  align-items: center;
+  min-width: 0;
+}
+
+.form__group-text {
+  color: #222;
+  font-size: 30px;
+  font-weight: 700;
+}
+
+.form__flag {
+  margin-left: 16px;
+  padding: 4px 14px;
+  color: #2ba471;
+  font-size: 18px;
+  background: #e8f5e9;
+  border-radius: 20px;
+}
+
+.form__flag--plain {
+  color: #888;
+  background: #f7f8fa;
+}
+
+.form__arrow {
+  flex: none;
+  color: #888;
+  font-size: 32px;
+  line-height: 1;
+  transition: transform 200ms ease-in-out;
+}
+
+.form__arrow.is-open {
+  transform: rotate(180deg);
+}
+
+.form__group-body {
+  margin-top: 24px;
+  animation: form-body-in 200ms ease-in-out both;
+}
+
+@keyframes form-body-in {
+  from {
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+  }
+}
+
+.form__sub {
+  display: block;
+  margin: 32px 0 16px;
+  padding-top: 24px;
+  color: #888;
+  font-size: 22px;
+  border-top: 1px solid #eee;
+}
+
+/* ---------- 字段 ---------- */
+
+.form__field-wrap {
+  margin-bottom: 8px;
+}
+
+.form__field {
+  display: flex;
+  align-items: center;
+  flex: 1;
+  min-width: 0;
+  height: 92px;
+  margin-bottom: 16px;
+  padding: 0 20px;
+  background: #f7f8fa;
+  border: 2px solid transparent;
+  border-radius: 12px;
+  transition: border-color 200ms ease-in-out, background 200ms ease-in-out;
+}
+
+.form__field.is-focus {
+  background: #fff;
+  border-color: #2ba471;
+}
+
+.form__field.is-error {
+  background: #fdf3f3;
+  border-color: #e53935;
+}
+
+.form__field--full {
+  box-sizing: border-box;
+  width: 100%;
+  height: auto;
+  min-height: 92px;
+  padding: 16px 20px;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+.form__label {
+  flex: none;
+  width: 130px;
+  color: #888;
+  font-size: 24px;
+}
+
+.form__req {
+  margin-left: 4px;
+  color: #e53935;
+}
+
+.form__input {
+  flex: 1;
+  min-width: 0;
+  height: 88px;
+  color: #222;
+  font-size: 26px;
+  line-height: 88px;
+  text-align: right;
+}
+
+.form__ph {
+  color: #b8bfc6;
+  font-size: 26px;
+}
+
+.form__tip {
+  display: block;
+  margin: -8px 0 16px 4px;
+  color: #e53935;
+  font-size: 20px;
+}
+
+.form__grid2 {
+  display: flex;
+}
+
+.form__grid2 .form__field {
+  margin-right: 20px;
+}
+
+.form__grid2 .form__field:last-child {
+  margin-right: 0;
+}
+
+.form__grid2 .form__label {
+  width: 96px;
+  font-size: 22px;
+}
+
+.form__picker {
+  flex: 1;
+  overflow: hidden;
+  color: #222;
+  font-size: 24px;
+  text-align: right;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.form__picker.is-placeholder {
+  color: #b8bfc6;
+}
+
+.form__field--full .form__label {
+  width: auto;
+  margin-bottom: 10px;
+}
+
+.form__field--full .form__input {
+  height: 56px;
+  line-height: 56px;
+  text-align: left;
+}
+
+.form__field--area {
+  display: block;
+}
+
+.form__textarea {
+  box-sizing: border-box;
+  width: 100%;
+  min-height: 140px;
+  color: #222;
+  font-size: 26px;
+  line-height: 1.6;
+}
+
+/* ---------- 经历 ---------- */
+
+.form__exp {
+  margin-bottom: 24px;
+  padding: 24px;
+  background: #fbfcfd;
+  border: 1px solid #eef1f4;
+  border-radius: 12px;
+}
+
+.form__exp-head {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 16px;
+}
+
+.form__tabs {
+  display: flex;
+  padding: 4px;
+  background: #f2f4f7;
+  border-radius: 24px;
+}
+
+.form__tab {
+  padding: 10px 24px;
+  color: #888;
+  font-size: 22px;
+  border-radius: 20px;
+  transition: background 200ms ease-in-out, color 200ms ease-in-out;
+}
+
+.form__tab.is-active {
+  color: #2ba471;
+  font-weight: 700;
+  background: #fff;
+}
+
+.form__del {
+  flex: none;
+  padding: 10px 12px;
+  color: #e53935;
+  font-size: 22px;
+}
+
+.form__add-row {
+  display: flex;
+  flex-wrap: wrap;
+  margin-top: 8px;
+}
+
+.form__add {
+  margin: 8px 16px 0 0;
+  padding: 14px 24px;
+  color: #2ba471;
+  font-size: 22px;
+  background: #e8f5e9;
+  border-radius: 24px;
+  transition: opacity 200ms ease-in-out;
+}
+
+.form__add--wide {
+  flex: 1;
+  text-align: center;
+}
+
+/* ---------- 技能 ---------- */
+
+.form__skill {
+  margin-bottom: 20px;
+  padding: 20px;
+  background: #fbfcfd;
+  border: 1px solid #eef1f4;
+  border-radius: 12px;
+}
+
+.form__skill-row {
+  display: flex;
+  align-items: center;
+}
+
+.form__skill-input {
+  flex: 1;
+  min-width: 0;
+  height: 64px;
+  color: #222;
+  font-size: 26px;
+  line-height: 64px;
+}
+
+.form__skill-level {
+  display: flex;
+  align-items: center;
+  margin-top: 8px;
+}
+
+.form__skill-label {
+  flex: none;
+  color: #888;
+  font-size: 22px;
+}
+
+.form__slider {
+  flex: 1;
+  margin: 0 20px;
+}
+
+.form__skill-value {
+  flex: none;
+  width: 72px;
+  color: #2ba471;
+  font-size: 22px;
+  font-weight: 700;
+  text-align: right;
+}
+
+/* ---------- 底部 ---------- */
+
+.form__note {
+  display: block;
+  margin-top: 16px;
+  color: #888;
+  font-size: 20px;
+  text-align: center;
+}
+
+.form__footer {
+  position: fixed;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  z-index: 50;
+  padding: 16px 24px calc(24px + env(safe-area-inset-bottom));
+  background: rgb(255 255 255 / 96%);
+  border-top: 1px solid #eee;
+}
+
+.form__footer-inner {
+  display: flex;
+}
+
+/*
+ * 桌面端：底部操作栏原本左右各贴视口边缘，宽屏下会横跨整个窗口，
+ * 与居中的 750px 内容区错位。这里改成与页面同宽并居中。
+ */
+@media (min-width: 751PX) {
+  .form__footer {
+    box-sizing: border-box;
+    right: auto;
+    left: 50%;
+    width: 750PX;
+    transform: translateX(-50%);
+  }
+}
+
+.form__footer-plain {
+  flex: none;
+  width: 220px;
+}
+
+.form__footer-main {
+  flex: 1;
+  margin-left: 20px;
+}
