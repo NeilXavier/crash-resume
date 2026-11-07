@@ -1,7 +1,11 @@
 {
-  "name": "jisu-jianli-test",
+  "name": "jisu-jianli",
   "version": "1.0.0",
   "private": true,
+  "description": "极速简历：一分钟生成可投递简历的 Taro + React H5 工程",
+  "engines": {
+    "node": ">=18"
+  },
   "scripts": {
     "build:h5": "taro build --type h5",
     "dev:h5": "taro build --type h5 --watch",

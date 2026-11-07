@@ -65,7 +65,13 @@ export function createEmptyDraft (templateId = 't1'): ResumeDraft {
   }
 }
 
-/** 示例草稿：用于首次体验与模板对比 */
+/**
+ * 示例草稿：用于首次体验与模板对比。
+ *
+ * 姓名、手机号、邮箱、学校、公司等全部为虚构演示数据：
+ * 邮箱使用 RFC 2606 保留域名 example.com，手机号使用公开的测试号段，
+ * 与仓库作者及任何真实个人无关。
+ */
 export const MOCK_DRAFT: ResumeDraft = {
   userInfo: {
     avatar: '',
