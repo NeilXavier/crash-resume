@@ -20,4 +20,7 @@ Thumbs.db
 .idea/
 .vscode/
 
+# 本地发行构建产物（GitHub Release 上传的是 release/ 下的 zip）
+release/
+
 # 说明：dist/ 已被 README 承诺「预构建产物可直接预览」，因此保留提交

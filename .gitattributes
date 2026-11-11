@@ -5,6 +5,9 @@
 *.bat text eol=crlf
 *.cmd text eol=crlf
 
+# 免安装版使用说明由 Windows 用户用记事本打开，保留 CRLF
+scripts/portable/*.txt text eol=crlf
+
 # 二进制文件不参与换行转换
 *.png binary
 *.jpg binary

@@ -8,6 +8,18 @@
 > 仓库内示例简历中的姓名、手机号、邮箱、学校、公司等全部为虚构演示数据
 > （邮箱使用 `example.com` 保留域名），与仓库作者及任何真实个人无关。
 
+## 下载使用（Windows 免安装版）
+
+前往 [Releases](https://github.com/NeilXavier/crash-resume/releases) 下载
+`crash-resume-v1.0.0-windows-x64.zip`：
+
+1. 解压整个文件夹（保留 `dist` 目录，不要只拖出 exe）
+2. 双击 `start.bat`，或直接双击 `CrashResume.exe`
+3. 浏览器自动打开 http://localhost:10087/
+
+不需要安装 Node.js，也不需要联网。程序只监听本机 `127.0.0.1`；简历数据只保存在当前浏览器。
+首次运行若出现 Windows SmartScreen 提示，点「更多信息」→「仍要运行」即可。
+
 ## 界面预览
 
 | 手机端首页 | 填写信息 |
@@ -66,6 +78,17 @@ npm run dev:h5
 > **两个命令不要同时运行。** `dev:h5` 使用内存构建并会清空 `dist/`，
 > 此时 `serve:h5` 找不到任何文件，浏览器只会显示 `Not found`。
 > 需要预览生产包时，先停掉 dev，再依次执行 `build:h5` 和 `serve:h5`。
+
+### 构建 Windows 免安装包
+
+```powershell
+npm run build:h5
+powershell -ExecutionPolicy Bypass -File scripts/build-release.ps1 -Version 1.0.0
+```
+
+产物为 `release/crash-resume-v1.0.0-windows-x64.zip`，包含 `dist/`、
+`CrashResume.exe`、`start.bat`、`README.txt`。启动器使用 Windows 自带的
+.NET Framework 4.x 编译，不需要安装 Node.js，也不需要额外下载运行时。
 
 ## 环境变量与密钥
 
@@ -143,8 +166,11 @@ PNG 不能直接作为 Flate 图像流解码，所以查看器能打开、页面
 src/                 源码
 config/index.ts      Taro 构建配置
 scripts/serve.js     零依赖静态预览服务器（默认端口 10087）
+scripts/build-release.ps1  Windows 免安装包构建脚本
+scripts/portable/    免安装版启动器源码、启动脚本与使用说明
 dist/                预构建的 H5 产物
 screenshots/         手机端与桌面端页面截图
+release/             本地生成的发行包（已忽略，不提交）
 .env.example         环境变量占位示例（不含真实值）
 .gitignore           忽略依赖、缓存、日志与 .env
 .gitattributes       统一换行与二进制文件处理
